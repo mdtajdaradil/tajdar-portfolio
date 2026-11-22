@@ -1,0 +1,8 @@
+import Link from 'next/link';
+import { SITE, STEPS } from '@/lib/data';
+export const Chips = ({ a }) => <ul className="chips">{a.map(x => <li key={x}>{x}</li>)}</ul>;
+export const Cta = ({ h = 'Hiring a developer or planning a website?', p = 'Tell me what you need. I reply by email or WhatsApp.' }) => (
+  <section className="sec cta"><div className="w" data-r><h2>{h}</h2><p className="lead">{p}</p><div className="row"><Link className="btn p" href="/contact">Start a project</Link><a className="btn" href={SITE.wa}>WhatsApp</a><a className="btn" href="/Tajdar_Adil_Resume.pdf" download>Download CV</a></div></div></section>);
+export const Process = () => (<div className="tl">{STEPS.map(([t, d], i) => <div key={t} data-r style={{ '--d': i % 3 }}><h3>{t}</h3><p className="mu">{d}</p></div>)}</div>);
+export const PageHead = ({ t, p }) => (<section className="ph"><div className="w"><h1 style={{ maxWidth: '16ch' }}>{t}</h1><p className="lead" style={{ fontSize: '1.3rem' }}>{p}</p></div></section>);
+export const Case = ({ w, i }) => (<article className="stk" style={{ '--h': w.h, '--i': i }}><div><small>{w.k}</small><h3>{w.n}</h3><p className="mu">{w.d}</p><Chips a={w.s} /><p style={{ marginTop: 18 }}><a className="lk" href={'https://' + w.u} rel="noopener">Visit {w.u}</a></p></div><ul>{w.l.map(x => <li key={x}>{x}</li>)}</ul></article>);
