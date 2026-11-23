@@ -16,7 +16,7 @@ export default function HireMe() {
         <h1><span className="ln" style={{ '--i': 0 }}><span>Looking for a</span></span><span className="ln" style={{ '--i': 1 }}><span>developer who</span></span><span className="ln" style={{ '--i': 2 }}><span>ships?</span></span></h1>
         <div className="cyc" aria-hidden="true">{CYC.map((c, i) => <span key={c} style={{ '--i': i }}>{c}</span>)}</div>
         <p className="lead" style={{ fontSize: '1.2rem' }}>I’m Tajdar. I build and maintain live Drupal 10 websites and Shopify stores, from Twig and Liquid templates to custom modules, payments and production support.</p>
-        <div className="row"><a className="btn p" href="/Tajdar_Adil_Resume.pdf" download>Download CV</a><a className="btn" href={'mailto:' + SITE.email + '?subject=Job opportunity'}>Email me</a><a className="btn" href={SITE.li}>LinkedIn</a></div>
+        <div className="row"><a className="btn p" href="/Tajdar_Adil_Resume.pdf" target="_blank" rel="noopener noreferrer">View CV</a><a className="btn" href={'mailto:' + SITE.email + '?subject=Job opportunity'}>Email me</a><a className="btn" href={SITE.li}>LinkedIn</a></div>
       </div>
       <aside className="idc" aria-label="Quick profile"><span className="st"><i />Open to full-time roles</span><h2>Md. Tajdar Adil</h2><p className="mu">Full Stack Web Developer</p>
         <dl>{rows.map(([k, v]) => <div key={k}><dt>{k}</dt><dd>{v}</dd></div>)}</dl></aside>
@@ -45,6 +45,6 @@ export default function HireMe() {
     <section className="sec" style={{ background: 'var(--sf)' }}><div className="w g2" style={{ alignItems: 'start', marginTop: 0 }}><div data-r><h2>Questions HR asks</h2><p className="lead">Short answers before the first call.</p></div><div data-r>{HIRE_FAQ.map(([q, a]) => <details key={q}><summary>{q}</summary><p>{a}</p></details>)}</div></div></section>
 
     <section className="sec"><div className="w" data-r><div className="glow"><div><h2>Let’s talk about the role.</h2><p className="lead">Send the job description or a short message. I reply by email or WhatsApp.</p>
-      <div className="row"><a className="btn p" href={'mailto:' + SITE.email + '?subject=Job opportunity'}>Email me</a><a className="btn" href={SITE.wa}>WhatsApp</a><a className="btn" href="/Tajdar_Adil_Resume.pdf" download>Download CV</a></div></div></div></div></section>
+      <div className="row"><a className="btn p" href={'mailto:' + SITE.email + '?subject=Job opportunity'}>Email me</a><a className="btn" href={SITE.wa}>WhatsApp</a><a className="btn" href="/Tajdar_Adil_Resume.pdf" target="_blank" rel="noopener noreferrer">View CV</a></div></div></div></div></section>
   </>);
 }

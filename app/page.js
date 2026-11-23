@@ -20,7 +20,7 @@ export default function Home() {
         <h1 style={{ marginTop: 20 }}><span className="ln" style={{ '--i': 0 }}><span>Hi, I’m Tajdar.</span></span><span className="ln" style={{ '--i': 1 }}><span>Full Stack</span></span><span className="ln" style={{ '--i': 2 }}><span>Developer.</span></span></h1>
         <div className="cyc" aria-hidden="true">{['Drupal 10 and PHP', 'Shopify and Liquid', 'Twig, SCSS and JavaScript'].map((c, i) => <span key={c} style={{ '--i': i }}>{c}</span>)}</div>
         <p className="lead" style={{ fontSize: '1.2rem' }}>Nearly 3 years of live Drupal 10 and Shopify work: custom modules, themes, payments, deployments and production support. I am looking for a team where I can build, own and grow.</p>
-        <div className="row"><a className="btn p" href="/Tajdar_Adil_Resume.pdf" download>Download CV</a><Link className="btn" href="/hire-me">Why hire me</Link><Link className="btn" href="/contact">Contact</Link></div>
+        <div className="row"><a className="btn p" href="/Tajdar_Adil_Resume.pdf" target="_blank" rel="noopener noreferrer">View CV</a><Link className="btn" href="/hire-me">Why hire me</Link><Link className="btn" href="/contact">Contact</Link></div>
         <p className="mu" style={{ marginTop: 16 }}>Need a website instead? <Link href="/services" style={{ color: 'var(--ac)' }}>See my freelance services</Link>.</p>
       </div>
       <div className="cl" aria-label="Profile summary"><div><i /><i /><i /></div><pre>{CODE.map((l, i) => <span key={i} className={i === CODE.length - 1 ? 'cur' : undefined} style={{ '--c': l.reduce((n, [, t]) => n + t.length, 0), '--i': i }}>{l.map(([c, t], j) => <b key={j} className={c || undefined}>{t}</b>)}</span>)}</pre></div>
@@ -36,7 +36,7 @@ export default function Home() {
 
     <section className="sec"><div className="w xp"><div className="xp-l" data-r><h2>Experience that shipped.</h2><p className="lead">Intern to full stack developer, plus a live freelance store, all on real client projects.</p>
       <div className="kpi"><div><b>3 yrs</b><span>building</span></div><div><b>5</b><span>live sites</span></div><div><b>3</b><span>roles held</span></div></div>
-      <div className="row"><Link className="btn p" href="/experience">Full experience</Link><a className="btn" href="/Tajdar_Adil_Resume.pdf" download>Download CV</a></div></div>
+      <div className="row"><Link className="btn p" href="/experience">Full experience</Link><a className="btn" href="/Tajdar_Adil_Resume.pdf" target="_blank" rel="noopener noreferrer">View CV</a></div></div>
       <ol className="jobs">{JOBS.map(([r, c, d, l], i) => <li className="job" key={r} data-r style={{ '--h': HUE[i], '--d': i }}><span className="when">{d}</span><h3>{r}</h3><p className="mu">{c}</p><ul><li>{l[0]}</li><li>{l[1]}</li></ul><Chips a={TAGS[i]} /></li>)}</ol></div></section>
 
     <section className="sec" style={{ background: 'var(--sf)' }}><div className="w" data-r><h2>Tools I work with.</h2><p className="lead">Each lane moves at its own pace, sorted by how often I use the tools. Hover to pause.</p></div>
@@ -48,6 +48,6 @@ export default function Home() {
       <ul className="ck">{DAILYWORK.map((x, k) => <li key={x} style={{ '--k': k }}><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M5 12.5l4.5 4.5L19 7" /></svg><span>{x}</span></li>)}</ul></div></section>
 
     <section className="sec"><div className="w" data-r><div className="glow"><div><h2>Hiring a Full Stack Developer?</h2><p className="lead">Send me the role. I reply by email or WhatsApp.</p>
-      <div className="row"><a className="btn p" href={'mailto:' + SITE.email + '?subject=Job opportunity'}>Email me</a><a className="btn" href={SITE.wa}>WhatsApp</a><a className="btn" href="/Tajdar_Adil_Resume.pdf" download>Download CV</a><a className="btn" href={SITE.li}>LinkedIn</a></div></div></div></div></section>
+      <div className="row"><a className="btn p" href={'mailto:' + SITE.email + '?subject=Job opportunity'}>Email me</a><a className="btn" href={SITE.wa}>WhatsApp</a><a className="btn" href="/Tajdar_Adil_Resume.pdf" target="_blank" rel="noopener noreferrer">View CV</a><a className="btn" href={SITE.li}>LinkedIn</a></div></div></div></div></section>
   </>);
 }
