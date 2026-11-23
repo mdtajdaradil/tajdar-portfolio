@@ -1,29 +1,53 @@
 import Link from 'next/link';
-import { Chips, Cta, Process, Case } from '@/components/Bits';
-import { TECH, TYPES, PLATFORMS, WORK, JOBS } from '@/lib/data';
+import { Chips, Case } from '@/components/Bits';
+import { TECH, WORK, JOBS, TIERS, PILLARS, JOURNEY, DAILYWORK, SITE } from '@/lib/data';
+const CODE = [
+  [['tk', 'const '], ['', 'tajdar = {']],
+  [['', '  role: '], ['ts', '"Full Stack Developer"'], ['', ',']],
+  [['', '  stack: '], ['ts', '["Drupal", "Shopify", "PHP"]'], ['', ',']],
+  [['', '  experience: '], ['ts', '"nearly 3 years"'], ['', ',']],
+  [['', '  location: '], ['ts', '"Ranchi, India"'], ['', ',']],
+  [['', '  openTo: '], ['ts', '"full-time roles"'], ['', ',']],
+  [['', '};']],
+];
 const TAGS = [['Drupal 10', 'Twig', 'PHP', 'Pantheon'], ['Shopify', 'Liquid', 'Razorpay', 'Speed'], ['HTML5', 'CSS3', 'Bootstrap', 'Git']], HUE = [215, 38, 150];
+const DOTS = [[20, 190], [360, 120], [650, 80], [980, 30]], SPEED = ['44s', '52s', '36s'];
 export default function Home() {
   return (<>
-    <section className="hero"><div className="w">
-      <h1><span className="ln" style={{ '--i': 0 }}><span>I build websites</span></span><span className="ln" style={{ '--i': 1 }}><span>that bring you</span></span><span className="ln" style={{ '--i': 2 }}><span>customers.</span></span></h1>
-      <p className="lead" style={{ fontSize: '1.3rem' }}>Hi, I’m Tajdar, a Full Stack Web Developer in Ranchi. Online stores, NGO sites, school and hospital sites, business sites and web apps, on the platform your project needs.</p>
-      <div className="row"><Link className="btn p" href="/contact">Start a project</Link><Link className="btn" href="/hire-me">Hire me full-time</Link><a className="btn" href="/Tajdar_Adil_Resume.pdf" download>Download CV</a></div>
-      <div className="big" aria-hidden="true">Tajdar</div></div>
-      <div className="mq" aria-hidden="true"><div>{[...TECH, ...TECH].map((t, i) => <span key={i}>{t}</span>)}</div></div></section>
+    <section className="hero"><div className="w hh">
+      <div>
+        <span className="st"><i />Open to full-time roles</span>
+        <h1 style={{ marginTop: 20 }}><span className="ln" style={{ '--i': 0 }}><span>Hi, I’m Tajdar.</span></span><span className="ln" style={{ '--i': 1 }}><span>Full Stack</span></span><span className="ln" style={{ '--i': 2 }}><span>Developer.</span></span></h1>
+        <div className="cyc" aria-hidden="true">{['Drupal 10 and PHP', 'Shopify and Liquid', 'Twig, SCSS and JavaScript'].map((c, i) => <span key={c} style={{ '--i': i }}>{c}</span>)}</div>
+        <p className="lead" style={{ fontSize: '1.2rem' }}>Nearly 3 years of live Drupal 10 and Shopify work: custom modules, themes, payments, deployments and production support. I am looking for a team where I can build, own and grow.</p>
+        <div className="row"><a className="btn p" href="/Tajdar_Adil_Resume.pdf" download>Download CV</a><Link className="btn" href="/hire-me">Why hire me</Link><Link className="btn" href="/contact">Contact</Link></div>
+        <p className="mu" style={{ marginTop: 16 }}>Need a website instead? <Link href="/services" style={{ color: 'var(--ac)' }}>See my freelance services</Link>.</p>
+      </div>
+      <div className="cl" aria-label="Profile summary"><div><i /><i /><i /></div><pre>{CODE.map((l, i) => <span key={i} className={i === CODE.length - 1 ? 'cur' : undefined} style={{ '--c': l.reduce((n, [, t]) => n + t.length, 0), '--i': i }}>{l.map(([c, t], j) => <b key={j} className={c || undefined}>{t}</b>)}</span>)}</pre></div>
+    </div>
+    <div className="mq" aria-hidden="true"><div>{[...TECH, ...TECH].map((t, i) => <span key={i}>{t}</span>)}</div></div></section>
 
-    <section className="sec"><div className="w"><div data-r><h2>Every kind of website, built for its audience.</h2><p className="lead">Hover or focus a card. If your type of site is not listed, I can still build it.</p></div>
-      <div className="types" data-r>{TYPES.map(([t, d]) => <div className="ty" tabIndex="0" key={t}><h3>{t}</h3><p>{d}</p></div>)}</div></div></section>
+    <section className="sec"><div className="w"><h2 data-r>What a team gets.</h2><p className="lead" data-r>Four things you can expect from me from the first sprint.</p>
+      <div className="pil">{PILLARS.map(([t, d], i) => <div key={t} data-r style={{ '--d': i }}><span>0{i + 1}</span><h3>{t}</h3><p>{d}</p></div>)}</div></div></section>
 
-    <section className="sec" style={{ background: 'var(--sf)' }}><div className="w"><h2 data-r>Selected work</h2><p className="lead" data-r style={{ marginBottom: 40 }}>Five live projects across Drupal and Shopify.</p>{WORK.map((w, i) => <Case key={w.n} w={w} i={i} />)}</div></section>
-
-    <section className="sec"><div className="w" style={{ textAlign: 'center' }}><h2 data-r>Your platform, your choice.</h2><p className="lead" data-r style={{ margin: '18px auto 0' }}>Drupal, Shopify, WordPress, React, Next.js, Laravel or another CMS. I match the technology to your requirement.</p>
-      <div className="orbw" data-r><div className="orb" role="img" aria-label={'Platforms: ' + PLATFORMS.join(', ')}><b>Any<br />stack</b>{PLATFORMS.map((p, i) => <span key={p} style={{ '--a': `${(360 / PLATFORMS.length) * i}deg` }}><i style={{ '--h': i * 50 + 20 }}>{p}</i></span>)}</div></div></div></section>
-
-    <section className="sec" style={{ background: 'var(--sf)' }}><div className="w g2" style={{ alignItems: 'start' }}><div data-r><h2>How a project runs</h2><p className="lead">Six steps, the same for a landing page or a full store.</p></div><Process /></div></section>
+    <section className="sec" style={{ background: 'var(--sf)' }}><div className="w" data-r><h2>My path so far.</h2><p className="lead">From frontend intern to full stack developer in under three years.</p>
+      <svg className="jsv" viewBox="0 0 1000 220" role="img" aria-label="Career path from 2024 to 2026"><path className="jp" pathLength="1" d="M20 190 C190 190 210 120 360 120 S540 80 650 80 S880 30 980 30" />{DOTS.map(([x, y], k) => <circle key={k} className="jd" cx={x} cy={y} r="11" style={{ '--k': k }} />)}</svg>
+      <div className="jl">{JOURNEY.map(([d, t, p]) => <div key={t}><small>{d}</small><h3>{t}</h3><p>{p}</p></div>)}</div></div></section>
 
     <section className="sec"><div className="w xp"><div className="xp-l" data-r><h2>Experience that shipped.</h2><p className="lead">Intern to full stack developer, plus a live freelance store, all on real client projects.</p>
-      <div className="kpi"><div><b>3 yrs</b><span>building</span></div><div><b>5</b><span>live sites</span></div><div><b>15</b><span>services</span></div></div>
+      <div className="kpi"><div><b>3 yrs</b><span>building</span></div><div><b>5</b><span>live sites</span></div><div><b>3</b><span>roles held</span></div></div>
       <div className="row"><Link className="btn p" href="/experience">Full experience</Link><a className="btn" href="/Tajdar_Adil_Resume.pdf" download>Download CV</a></div></div>
       <ol className="jobs">{JOBS.map(([r, c, d, l], i) => <li className="job" key={r} data-r style={{ '--h': HUE[i], '--d': i }}><span className="when">{d}</span><h3>{r}</h3><p className="mu">{c}</p><ul><li>{l[0]}</li><li>{l[1]}</li></ul><Chips a={TAGS[i]} /></li>)}</ol></div></section>
-    <Cta /></>);
+
+    <section className="sec" style={{ background: 'var(--sf)' }}><div className="w" data-r><h2>Tools I work with.</h2><p className="lead">Each lane moves at its own pace, sorted by how often I use the tools. Hover to pause.</p></div>
+      <div className="w">{TIERS.map(([t, h, a], i) => <div key={t}><div className="rwl" style={{ '--h': h }}>{t}</div><div className="rw" style={{ '--h': h }}><div className={'rwt' + (i === 1 ? ' rv' : '')} style={{ '--t': SPEED[i] }}><ul>{a.concat(a, a).map((x, j) => <li key={j}>{x}</li>)}</ul><ul aria-hidden="true">{a.concat(a, a).map((x, j) => <li key={j}>{x}</li>)}</ul></div></div></div>)}</div></section>
+
+    <section className="sec"><div className="w"><h2 data-r>Work I can walk you through.</h2><p className="lead" data-r style={{ marginBottom: 40 }}>Five live projects. Open any link and ask me how it was built.</p>{WORK.map((w, i) => <Case key={w.n} w={w} i={i} />)}</div></section>
+
+    <section className="sec" style={{ background: 'var(--sf)' }}><div className="w" data-r><h2>What I do day to day.</h2><p className="lead">The work from my current role, as a checklist.</p>
+      <ul className="ck">{DAILYWORK.map((x, k) => <li key={x} style={{ '--k': k }}><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M5 12.5l4.5 4.5L19 7" /></svg><span>{x}</span></li>)}</ul></div></section>
+
+    <section className="sec"><div className="w" data-r><div className="glow"><div><h2>Hiring a Full Stack Developer?</h2><p className="lead">Send me the role. I reply by email or WhatsApp.</p>
+      <div className="row"><a className="btn p" href={'mailto:' + SITE.email + '?subject=Job opportunity'}>Email me</a><a className="btn" href={SITE.wa}>WhatsApp</a><a className="btn" href="/Tajdar_Adil_Resume.pdf" download>Download CV</a><a className="btn" href={SITE.li}>LinkedIn</a></div></div></div></div></section>
+  </>);
 }
