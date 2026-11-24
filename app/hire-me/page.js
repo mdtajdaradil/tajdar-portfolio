@@ -15,7 +15,7 @@ export default function HireMe() {
       <div>
         <h1><span className="ln" style={{ '--i': 0 }}><span>Looking for a</span></span><span className="ln" style={{ '--i': 1 }}><span>developer who</span></span><span className="ln" style={{ '--i': 2 }}><span>ships?</span></span></h1>
         <div className="cyc" aria-hidden="true">{CYC.map((c, i) => <span key={c} style={{ '--i': i }}>{c}</span>)}</div>
-        <p className="lead" style={{ fontSize: '1.2rem' }}>I’m Tajdar. I build and maintain live Drupal 10 websites and Shopify stores, from Twig and Liquid templates to custom modules, payments and production support.</p>
+        <p className="lead">I’m Tajdar. I build and maintain live Drupal 10 websites and Shopify stores, from Twig and Liquid templates to custom modules, payments and production support.</p>
         <div className="row"><a className="btn p" href="/Tajdar_Adil_Resume.pdf" target="_blank" rel="noopener noreferrer">View CV</a><a className="btn" href={'mailto:' + SITE.email + '?subject=Job opportunity'}>Email me</a><a className="btn" href={SITE.li}>LinkedIn</a></div>
       </div>
       <aside className="idc" aria-label="Quick profile"><span className="st"><i />Open to full-time roles</span><h2>Md. Tajdar Adil</h2><p className="mu">Full Stack Web Developer</p>

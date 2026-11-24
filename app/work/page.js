@@ -8,7 +8,7 @@ export default function Work() {
     <section className="ph"><div className="w">
       <span className="st"><i />All five sites are live</span>
       <h1 style={{ marginTop: 20, maxWidth: '15ch' }}><span className="ln" style={{ '--i': 0 }}><span>Work you can</span></span><span className="ln" style={{ '--i': 1 }}><span>open and click.</span></span></h1>
-      <p className="lead" style={{ fontSize: '1.2rem' }}>Each case study shows the problem, my role, how it was built, the tools and what it proves. Every link goes to the real site.</p>
+      <p className="lead">Each case study shows the problem, my role, how it was built, the tools and what it proves. Every link goes to the real site.</p>
       <div className="xk" data-r style={{ marginTop: 36 }}>{WORK_KPI.map(([n, s, l]) => <div key={l}><span className="sr">{n} {l}</span><span className="cnt" aria-hidden="true" data-s={s} style={{ '--to': n }} /><p className="mu">{l}</p></div>)}</div>
     </div></section>
 

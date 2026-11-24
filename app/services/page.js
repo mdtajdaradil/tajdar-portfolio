@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import fs from 'node:fs';
 import path from 'node:path';
-import { Chips } from '@/components/Bits';
+import { Chips, Cta } from '@/components/Bits';
 import { PLATFORMS, TYPES2, ALSO, FIT, CATALOG, MODELS, INCLUDED, STEPS2, CFAQ, SITE, HERO_SHOTS, SVC_SLUGS } from '@/lib/data';
 const hasThumb = (slug) => { try { return fs.existsSync(path.join(process.cwd(), 'public', 'services', 'thumbs', slug + '.webp')); } catch { return false; } };
 export const metadata = { title: 'Web Development Services | Drupal, Shopify, React, E-commerce', description: 'Freelance web development: business sites, online stores, NGO, education and hospital websites, Drupal, Shopify, React and Next.js, migration, speed, SEO and support.', alternates: { canonical: '/services' } };
@@ -10,7 +10,7 @@ export default function Services() {
     <section className="hero"><div className="w hh">
       <div><h1><span className="ln" style={{ '--i': 0 }}><span>Websites that</span></span><span className="ln" style={{ '--i': 1 }}><span>win customers.</span></span></h1>
         <div className="cyc" aria-hidden="true">{['Online stores', 'NGO and school sites', 'Clinic and business sites'].map((c, i) => <span key={c} style={{ '--i': i }}>{c}</span>)}</div>
-        <p className="lead" style={{ fontSize: '1.2rem' }}>I design, build and maintain websites on Drupal, Shopify, React and Next.js, and on other platforms when your project needs them. From first idea to launch and support.</p>
+        <p className="lead">I design, build and maintain websites on Drupal, Shopify, React and Next.js, and on other platforms when your project needs them. From first idea to launch and support.</p>
         <div className="row"><Link className="btn p" href="/contact">Get a free quote</Link><a className="btn" href={SITE.wa}>WhatsApp me</a><Link className="btn" href="/work">See live projects</Link></div></div>
       <div className="hm" aria-hidden="true">
         <div className="bw"><div className="bb"><i /><i /><i /><span className="hu">{HERO_SHOTS.map(([id, n, k, u], q) => <em key={id} style={{ '--i': q }}>{u}</em>)}</span></div>
@@ -44,7 +44,6 @@ export default function Services() {
 
     <section className="sec"><div className="w g2" style={{ alignItems: 'start', marginTop: 0 }}><div data-r><h2>Client questions.</h2><p className="lead">Short answers before we talk.</p></div><div data-r>{CFAQ.map(([q, a]) => <details key={q}><summary>{q}</summary><p>{a}</p></details>)}</div></div></section>
 
-    <section className="sec" style={{ paddingTop: 0 }}><div className="w" data-r><div className="glow pic"><div><img className="ctab" src="/services/cta.webp" alt="" width="2000" height="851" loading="lazy" decoding="async" /><h2>Tell me about your website.</h2><p className="lead">Share your idea, platform and timeline. I reply with questions and a clear proposal.</p>
-      <div className="row"><Link className="btn p" href="/contact">Get a free quote</Link><a className="btn" href={SITE.wa}>WhatsApp</a><a className="btn" href={'mailto:' + SITE.email}>Email</a></div></div></div></div></section>
+    <Cta img="/services/cta.webp" eyebrow="Free quote" primary="Get a free quote" h="Tell me about your website." p="Share your idea, platform and timeline. I reply with questions and a clear proposal." />
   </>);
 }

@@ -12,7 +12,7 @@ export default function Experience() {
       <div>
         <span className="st"><i />Open to full-time roles</span>
         <h1 style={{ marginTop: 20, maxWidth: '14ch' }}><span className="ln" style={{ '--i': 0 }}><span>Nearly three</span></span><span className="ln" style={{ '--i': 1 }}><span>years. Three</span></span><span className="ln" style={{ '--i': 2 }}><span>roles. Shipped.</span></span></h1>
-        <p className="lead" style={{ fontSize: '1.2rem' }}>Every role below lists what I owned, the problems I solved and the tools I used, so you can judge fit in minutes.</p>
+        <p className="lead">Every role below lists what I owned, the problems I solved and the tools I used, so you can judge fit in minutes.</p>
         <ul className="tld">{TLDR.map((t, i) => <li key={t} style={{ '--k': i }}>{t}</li>)}</ul>
         <div className="row"><a className="btn p" href="/Tajdar_Adil_Resume.pdf" target="_blank" rel="noopener noreferrer">View CV</a><a className="btn" href="#roles">Jump to roles</a></div>
       </div>
