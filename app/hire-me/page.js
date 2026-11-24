@@ -1,4 +1,4 @@
-import { Chips } from '@/components/Bits';
+import { Chips, Cta } from '@/components/Bits';
 import { SITE, HIRE_EXTRA, ROLES, PROBLEMS, TIERS, PLAN, HIRE_FAQ, WORK } from '@/lib/data';
 export const metadata = {
   title: 'Hire Me | Full Stack Developer (Drupal, Shopify, PHP)',
@@ -44,7 +44,6 @@ export default function HireMe() {
 
     <section className="sec" style={{ background: 'var(--sf)' }}><div className="w g2" style={{ alignItems: 'start', marginTop: 0 }}><div data-r><h2>Questions HR asks</h2><p className="lead">Short answers before the first call.</p></div><div data-r>{HIRE_FAQ.map(([q, a]) => <details key={q}><summary>{q}</summary><p>{a}</p></details>)}</div></div></section>
 
-    <section className="sec"><div className="w" data-r><div className="glow"><div><h2>Let’s talk about the role.</h2><p className="lead">Send the job description or a short message. I reply by email or WhatsApp.</p>
-      <div className="row"><a className="btn p" href={'mailto:' + SITE.email + '?subject=Job opportunity'}>Email me</a><a className="btn" href={SITE.wa}>WhatsApp</a><a className="btn" href="/Tajdar_Adil_Resume.pdf" target="_blank" rel="noopener noreferrer">View CV</a></div></div></div></div></section>
+    <Cta img="/cta/hire-me.webp" eyebrow="Hiring" kind="hire" flush={false} h="Let’s talk about the role." p="Send the job description or a short message. I reply by email or WhatsApp." />
   </>);
 }

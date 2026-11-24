@@ -56,6 +56,6 @@ export default function Experience() {
       <div className="ec" data-r style={{ '--d': 1 }}><small>Easy to verify</small><h3>Nothing here is hard to check.</h3><ul className="vf">{VERIFY.items.map(x => <li key={x}>{x}</li>)}</ul>{VERIFY.note && <p className="mu">{VERIFY.note}</p>}</div>
     </div>
     <div className="row" data-r><Link className="btn p" href="/work">See the five live projects</Link><Link className="btn" href="/hire-me">Why hire me</Link></div></div></section>
-    <Cta h="Looking to hire a Full Stack Developer?" p="Send me the role details. I reply by email or WhatsApp." />
+    <Cta img="/cta/experience.webp" eyebrow="Open to full-time roles" kind="hire" h="Looking to hire a Full Stack Developer?" p="Send me the role details. I reply by email or WhatsApp." />
   </>);
 }

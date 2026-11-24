@@ -39,6 +39,6 @@ export default function Work() {
           </article>))}</div>
       </div>
     </div></section>
-    <Cta h="Want to see how any of these was built?" p="Open the live site, then send me your questions." />
+    <Cta img="/cta/work.webp" eyebrow="Live projects" h="Want to see how any of these was built?" p="Open the live site, then send me your questions." />
   </>);
 }

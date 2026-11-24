@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Chips, Case } from '@/components/Bits';
+import { Chips, Case, Cta } from '@/components/Bits';
 import { TECH, WORK, JOBS, TIERS, PILLARS, JOURNEY, DAILYWORK, SITE } from '@/lib/data';
 const CODE = [
   [['tk', 'const '], ['', 'tajdar = {']],
@@ -47,7 +47,6 @@ export default function Home() {
     <section className="sec" style={{ background: 'var(--sf)' }}><div className="w" data-r><h2>What I do day to day.</h2><p className="lead">The work from my current role, as a checklist.</p>
       <ul className="ck">{DAILYWORK.map((x, k) => <li key={x} style={{ '--k': k }}><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M5 12.5l4.5 4.5L19 7" /></svg><span>{x}</span></li>)}</ul></div></section>
 
-    <section className="sec"><div className="w" data-r><div className="glow"><div><h2>Hiring a Full Stack Developer?</h2><p className="lead">Send me the role. I reply by email or WhatsApp.</p>
-      <div className="row"><a className="btn p" href={'mailto:' + SITE.email + '?subject=Job opportunity'}>Email me</a><a className="btn" href={SITE.wa}>WhatsApp</a><a className="btn" href="/Tajdar_Adil_Resume.pdf" target="_blank" rel="noopener noreferrer">View CV</a><a className="btn" href={SITE.li}>LinkedIn</a></div></div></div></div></section>
+    <Cta img="/cta/home.webp" eyebrow="Open to full-time roles" kind="hire" flush={false} h="Hiring a Full Stack Developer?" p="Send me the role. I reply by email or WhatsApp." />
   </>);
 }

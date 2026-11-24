@@ -35,7 +35,9 @@ export default function Services() {
     <section className="sec" style={{ background: 'var(--sf)' }}><div className="w"><h2 data-r>How we can work together.</h2><p className="lead" data-r>Scope and timeline are agreed before work starts. Ask for a quote for the right fit.</p>
       <div className="mdl">{MODELS.map(([t, d, b], i) => <div key={t} data-r style={{ '--d': i }}><small>{b}</small><h3 style={{ margin: '8px 0' }}>{t}</h3><p className="mu">{d}</p></div>)}</div></div></section>
 
-    <section className="sec"><div className="w g2" style={{ alignItems: 'start', marginTop: 0 }}><div data-r><h2>From idea to live site.</h2><p className="lead">Six steps. At each one you know what I am doing and what you will receive.</p></div>
+    <section className="sec hw"><div className="w chs"><div className="chs-l" data-r><h2>From idea to live site.</h2><p className="lead">Six steps. At each one you know what I am doing and what you will receive.</p>
+      <div className="hwc"><Link className="btn p" href="/contact">Start with step one</Link><a className="btn" href={SITE.wa}>WhatsApp me</a></div>
+      <div className="hwf"><div><b>{STEPS2.length}</b><span>Clear steps</span><small>From first call to support</small></div><div><b>1</b><span>Written scope first</span><small>Agreed before any work starts</small></div><div><b>✓</b><span>Support after launch</span><small>Fixes and updates once you are live</small></div></div></div>
       <div className="tl">{STEPS2.map(([t, d, y], i) => <div key={t} data-r style={{ '--d': i % 3 }}><h3>{t}</h3><p className="mu">{d}</p><span className="yg">You get: {y}</span></div>)}</div></div></section>
 
     <section className="sec" style={{ background: 'var(--sf)' }}><div className="w" data-r><h2>Included in every project.</h2><p className="lead">The basics are never an extra.</p><div className="stp">{INCLUDED.map((x, k) => <div key={x} style={{ '--k': k }}>{x}</div>)}</div></div></section>

@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Chips } from '@/components/Bits';
+import { Chips, Cta } from '@/components/Bits';
 import { SKILLS, TIERS, CHAPTERS, PRINCIPLES, MILES, LOOKING, SITE } from '@/lib/data';
 export const metadata = { title: 'About Tajdar Adil | Full Stack Developer from Ranchi', description: 'Md. Tajdar Adil is a Full Stack Developer from Ranchi with nearly 3 years of Drupal 10 and Shopify experience. Read his story, skills, way of working and what he is looking for.', alternates: { canonical: '/about' } };
 const PHOTO = ['jpg', 'jpeg', 'png', 'webp'].map(e => 'tajdar.' + e).find(f => fs.existsSync(path.join(process.cwd(), 'public', f)));
@@ -36,7 +36,6 @@ export default function About() {
       <div className="spl">{[LOOKING.hire, LOOKING.client].map(([k, t, l], i) => <div key={k} data-r><small>{k}</small><h3>{t}</h3><ul>{l.map(x => <li key={x}>{x}</li>)}</ul>
         <div className="row">{i === 0 ? <><Link className="btn p" href="/hire-me">Why hire me</Link><a className="btn" href="/Tajdar_Adil_Resume.pdf" target="_blank" rel="noopener noreferrer">View CV</a></> : <><Link className="btn p" href="/services">See services</Link><Link className="btn" href="/contact">Get a quote</Link></>}</div></div>)}<span className="or" aria-hidden="true">or</span></div></div></section>
 
-    <section className="sec" style={{ paddingTop: 0 }}><div className="w" data-r><div className="glow"><div><h2>Let’s build something good.</h2><p className="lead">Send me a role, a project or just a question. I reply by email or WhatsApp.</p>
-      <div className="row"><a className="btn p" href={'mailto:' + SITE.email}>Email me</a><a className="btn" href={SITE.wa}>WhatsApp</a><a className="btn" href={SITE.li}>LinkedIn</a></div></div></div></div></section>
+    <Cta img="/cta/about.webp" eyebrow="Say hello" kind="hire" h="Let’s build something good." p="Send me a role, a project or just a question. I reply by email or WhatsApp." />
   </>);
 }
