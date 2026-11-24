@@ -9,14 +9,15 @@ export default function Motion() {
   const p = usePathname();
   useEffect(() => {
     const root = document.documentElement;
-    window.__rv = 1;                       // tells the failsafe in layout.js that this script is alive
-    root.classList.add('js');
+    window.__rv = 1;
     let raf = 0;
     const check = () => {
       raf = 0;
-      const lim = innerHeight * 0.94;
+      const lim = innerHeight * 1.12;      // reveal just before the element enters the screen
       document.querySelectorAll('[data-r]:not(.in)').forEach(n => { if (n.getBoundingClientRect().top < lim) n.classList.add('in'); });
     };
+    check();                               // everything already on screen is marked BEFORE hiding is switched on, so it never flashes
+    root.classList.add('js');
     const ask = () => { if (!raf) raf = requestAnimationFrame(check); };
     const focus = e => { const n = e.target.closest && e.target.closest('[data-r]'); if (n) n.classList.add('in'); };
     const mo = new MutationObserver(ask), main = document.getElementById('main');

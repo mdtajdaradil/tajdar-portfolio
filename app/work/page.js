@@ -22,8 +22,8 @@ export default function Work() {
             <div className="csh" data-r><span className="num" aria-hidden="true">0{i + 1}</span><div><small>{c.k} · {c.yr}</small><h2>{c.n}</h2><p className="mu">{c.role}</p></div></div>
             <Tilt className="bf" data-r max={4}>
               <div className="bb"><i /><i /><i /><span>{c.u}</span></div>
-              <div className={'scr' + (!c.shot && c.shotM ? ' po' : '')}>{c.shot ? <img src={c.shot} alt={c.n + ' homepage on desktop'} loading="lazy" /> : !c.shotM && <div className="bs mk" aria-hidden="true"><span className="sk h" /><span className="sk w" /><span className="sk s" /><div className="bg3"><span className="sk" /><span className="sk" /><span className="sk" /></div></div>}
-                {c.shotM && <div className="phn"><img src={c.shotM} alt={c.n + ' homepage on mobile'} loading="lazy" /></div>}
+              <div className={'scr' + (!c.shot && c.shotM ? ' po' : '')}>{c.shot ? <img src={c.shot} alt={c.n + ' homepage on desktop'} decoding="async" loading={i < 2 ? 'eager' : 'lazy'} /> : !c.shotM && <div className="bs mk" aria-hidden="true"><span className="sk h" /><span className="sk w" /><span className="sk s" /><div className="bg3"><span className="sk" /><span className="sk" /><span className="sk" /></div></div>}
+                {c.shotM && <div className="phn"><img src={c.shotM} alt={c.n + ' homepage on mobile'} decoding="async" loading={i < 2 ? 'eager' : 'lazy'} /></div>}
                 <a className="vis" href={'https://' + c.u} target="_blank" rel="noopener noreferrer">Visit live site<span className="sr"> {c.n}</span></a></div>
             </Tilt>
             <div className="cg" data-r>

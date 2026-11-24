@@ -4,11 +4,16 @@ import { useEffect, useRef, useState } from 'react';
 // 3D tilt + cursor spotlight. Extra props (data-r, id, style) go to the outer wrapper so scroll-reveal keeps working.
 export function Tilt({ children, max = 5, className = '', ...r }) {
   const el = useRef(null);
+  const raf = useRef(0);
   const move = e => {
-    const n = el.current; if (!n || e.pointerType === 'touch') return;
-    const b = n.getBoundingClientRect(), x = (e.clientX - b.left) / b.width, y = (e.clientY - b.top) / b.height;
-    n.style.setProperty('--mx', x * 100 + '%'); n.style.setProperty('--my', y * 100 + '%');
-    n.style.setProperty('--rx', (0.5 - y) * max + 'deg'); n.style.setProperty('--ry', (x - 0.5) * max + 'deg');
+    const n = el.current; if (!n || e.pointerType === 'touch' || raf.current) return;
+    const cx = e.clientX, cy = e.clientY;
+    raf.current = requestAnimationFrame(() => {
+      raf.current = 0;
+      const b = n.getBoundingClientRect(), x = (cx - b.left) / b.width, y = (cy - b.top) / b.height;
+      n.style.setProperty('--mx', x * 100 + '%'); n.style.setProperty('--my', y * 100 + '%');
+      n.style.setProperty('--rx', (0.5 - y) * max + 'deg'); n.style.setProperty('--ry', (x - 0.5) * max + 'deg');
+    });
   };
   const leave = () => { const n = el.current; if (n) { n.style.setProperty('--rx', '0deg'); n.style.setProperty('--ry', '0deg'); } };
   return <div ref={el} className={'tilt ' + className} onPointerMove={move} onPointerLeave={leave} {...r}><div className="ti">{children}</div></div>;

@@ -258,3 +258,24 @@ body,header,.card,.bt,.stk,.job,.pc,.ty,.btn{transition-property:background-colo
 .scr .vis{right:auto;left:16px}
 .scr.po{display:grid;place-items:center;min-height:420px;padding:30px 0}.scr.po .phn{position:static;width:200px}
 @media(max-width:860px){.phn{bottom:-6%}.scr.po .phn{width:170px}}
+
+/* thumbnails on Home cards and Experience cards */
+.cdr{display:grid;gap:18px;align-content:start}.cth{display:block;border-radius:16px;overflow:hidden;border:1px solid hsl(var(--h) 45% var(--hbd));box-shadow:0 24px 50px -28px hsl(var(--h) 90% 55%/.6);transition:transform .4s cubic-bezier(.2,.8,.2,1)}.cth:hover{transform:translateY(-4px) scale(1.015)}
+.cth img{display:block;width:100%;height:auto;aspect-ratio:2.05/1;object-fit:cover;object-position:top}
+.pth{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:22px}.pth a{display:grid;gap:6px;text-decoration:none;font-weight:700;font-size:.85rem;color:var(--mu)}
+.pth img{display:block;width:100%;height:auto;aspect-ratio:2.05/1;object-fit:cover;object-position:top;border-radius:12px;border:1px solid var(--ln);transition:transform .35s,border-color .35s}.pth a:hover img{transform:translateY(-3px);border-color:hsl(var(--h) 90% 60%)}
+
+/* faster reveals */
+.js [data-r]{transform:translateY(16px);transition:opacity .45s ease-out,transform .5s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--d,0)*40ms)}.js [data-r].in{transform:none}
+.js .tilt[data-r]{transform:translateY(16px)}.js .tilt[data-r].in{transform:none}
+.js .bf[data-r] .scr{transition:clip-path .7s cubic-bezier(.7,0,.2,1)}
+.fw:after{transition:transform 1s .1s cubic-bezier(.5,0,.2,1)}.fw.in b{animation-delay:calc(var(--k)*.12s + .1s)}
+.cnt{animation-duration:1.1s}
+@media(prefers-reduced-motion:reduce){.js [data-r],.js .tilt[data-r]{transform:none}}
+
+/* performance: lighter paint, no always-on heavy animations */
+.tilt>.ti{will-change:auto}.tilt:hover>.ti{will-change:transform}
+.shw{animation:none}.shw:hover{animation:rot 6s linear infinite}
+.js .bf[data-r] .scr{clip-path:none;transition:none}
+.bf>.ti{box-shadow:0 24px 50px -30px hsl(var(--h) 90% 55%/.45)}
+.scr:after{animation-duration:6s}

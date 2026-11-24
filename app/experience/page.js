@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Chips, Cta } from '@/components/Bits';
 import { Tilt } from '@/components/Fx';
-import { SITE, SNAPSHOT, EXP_KPI, TLDR, JOBS2, GANTT, EDU, VERIFY } from '@/lib/data';
+import { SITE, CASES, SNAPSHOT, EXP_KPI, TLDR, JOBS2, GANTT, EDU, VERIFY } from '@/lib/data';
 export const metadata = { title: 'Experience', description: 'Full Stack Developer at Next Geeks, freelance Shopify developer and frontend intern. 34 months of live Drupal 10 and Shopify work, with responsibilities, results and tools for every role.', alternates: { canonical: '/experience' } };
 const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const mo = i => MON[i % 12] + ' ' + (2024 + Math.floor(i / 12));
@@ -38,6 +38,7 @@ export default function Experience() {
           </div>
           {j.metric && <p className="mtr">{j.metric}</p>}
           <div className="jf"><div><small>Tools used</small><Chips a={j.stack} /></div><div><small>What I learned</small><Chips a={j.learned} /></div></div>
+          {j.proof.some(u => CASES.find(c => c.u === u && c.thumb)) && <div className="pth">{j.proof.map(u => CASES.find(c => c.u === u && c.thumb)).filter(Boolean).map(c => <a key={c.id} href={'/work#' + c.id}><img src={c.thumb} alt={c.n + ' homepage'} width="800" height="390" decoding="async" /><span>{c.n}</span></a>)}</div>}
           {j.proof.length > 0 && <p className="prf"><small>Live proof</small>{j.proof.map(u => <a key={u} className="lk" href={'https://' + u} target="_blank" rel="noopener noreferrer">{u}</a>)}</p>}
         </Tilt>))}</div>
     </div></section>
