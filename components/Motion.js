@@ -28,11 +28,5 @@ export default function Motion() {
     ask();
     return () => { cancelAnimationFrame(raf); mo.disconnect(); ts.forEach(clearTimeout); removeEventListener('scroll', ask); removeEventListener('resize', ask); removeEventListener('load', ask); removeEventListener('hashchange', ask); document.removeEventListener('focusin', focus); };
   }, [p]);
-  useEffect(() => {
-    if (CSS.supports('animation-timeline: scroll()') && !matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const r = document.documentElement, f = () => r.style.setProperty('--sp', Math.min(1, scrollY / Math.max(1, r.scrollHeight - innerHeight)));
-    f(); addEventListener('scroll', f, { passive: true }); addEventListener('resize', f);
-    return () => { removeEventListener('scroll', f); removeEventListener('resize', f); };
-  }, [p]);
   return null;
 }
